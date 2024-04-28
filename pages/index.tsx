@@ -30,7 +30,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Next.js Conf 2022 Photos</title>
+        <title>Gallery</title>
         <meta
           property="og:image"
           content="https://nextjsconf-pics.vercel.app/og-image.png"
@@ -59,7 +59,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             </div>
             <Logo />
             <h1 className="mt-8 mb-4 text-base font-bold uppercase tracking-widest">
-              2022 Event Photos
+              2024 Event Photos
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
               Our incredible Next.js community got together in San Francisco for
@@ -71,7 +71,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Clone and Deploy
+              Share
             </a>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
@@ -144,6 +144,8 @@ export async function getStaticProps() {
     .max_results(400)
     .execute();
   let reducedResults: ImageProps[] = [];
+
+  console.log(results);
 
   let i = 0;
   for (let result of results.resources) {
